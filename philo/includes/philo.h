@@ -14,18 +14,39 @@
 # define PHILO_H
 
 # include <stdio.h>
+# include <pthread.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <sys/time.h>
 
-typedef struct philo
+typedef struct philo_data
 {
-    int n_philo;
-    int t_die;
-    int t_eat;
-    int t_sleep;
-    int n_must_eat;
+    pthread_t philo;
+    int id;
+    int l_fork;
+    int r_fork;
+    int count;
+    int limit_eat;
+    struct args_s *data;
+
+}               phil_t;
+
+typedef struct args_s
+{
+    int nphil;
+    int t_d;
+    int t_e;
+    int t_s;
+    int m_eat;
+    long    time;
+    int i;
+    pthread_mutex_t *forks;
+    pthread_mutex_t m_print;
+    pthread_mutex_t m_protect;
+    phil_t *philos;
 }               args_t;
 
-
-int	ft_atoi(const char *str);
+long	ft_atoi(const char *str);
 int	ft_isdigit(int c);
 
 

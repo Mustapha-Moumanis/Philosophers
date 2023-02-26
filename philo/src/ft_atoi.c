@@ -6,7 +6,7 @@
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 00:58:06 by mmoumani          #+#    #+#             */
-/*   Updated: 2023/02/18 01:35:26 by mmoumani         ###   ########.fr       */
+/*   Updated: 2023/02/25 11:28:31 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	ft_white_space(const char *str, int i)
 	return (i);
 }
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
 	int				i;
 	int				sign;
@@ -41,5 +41,7 @@ int	ft_atoi(const char *str)
 		r += (str[i] - '0');
 		i++;
 	}
+	if (r > 2147483647)
+		return (-1);
 	return (r * sign);
 }
