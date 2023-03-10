@@ -1,16 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   time.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/18 00:59:38 by mmoumani          #+#    #+#             */
-/*   Updated: 2023/03/02 15:58:03 by mmoumani         ###   ########.fr       */
+/*   Created: 2023/03/02 15:57:22 by mmoumani          #+#    #+#             */
+/*   Updated: 2023/03/03 08:36:46 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
+#include "../includes/philo.h"
+
+long	get_time(void)
 {
-	return ((c >= '0' && c <= '9'));
+	struct timeval	begin;
+
+	gettimeofday(&begin, NULL);
+	return (begin.tv_sec * 1000 + begin.tv_usec / 1000);
+}
+
+void	ft_usleep(long time_finish)
+{
+	long	time_enter;
+
+	time_enter = get_time();
+	while (get_time() - time_enter < time_finish)
+		usleep(100);
 }

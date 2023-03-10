@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ../includes/philo.h                                            :+:      :+:    :+:   */
+/*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 00:26:22 by mmoumani          #+#    #+#             */
-/*   Updated: 2023/02/18 01:01:13 by mmoumani         ###   ########.fr       */
+/*   Updated: 2023/03/10 13:37:50 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,33 +21,52 @@
 
 typedef struct philo_data
 {
-    pthread_t philo;
-    int id;
-    int l_fork;
-    int r_fork;
-    int count;
-    int limit_eat;
-    struct args_s *data;
+	pthread_t		philo;
+	int				id;
+	int				l_fork;
+	int				r_fork;
+	int				count;
+	int				limit_eat;
+	int				check;
+	long			e_time;
+	int				is_eating;
+	struct s_data	*data;
+}					t_phil;
 
-}               phil_t;
-
-typedef struct args_s
+typedef struct s_data
 {
-    int nphil;
-    int t_d;
-    int t_e;
-    int t_s;
-    int m_eat;
-    long    time;
-    int i;
-    pthread_mutex_t *forks;
-    pthread_mutex_t m_print;
-    pthread_mutex_t m_protect;
-    phil_t *philos;
-}               args_t;
+	int					nphil;
+	int					t_d;
+	int					t_e;
+	int					t_s;
+	int					m_eat;
+	long				time;
+	int					*all_eat;
+	pthread_mutex_t		*forks;
+	pthread_mutex_t		m_print;
+	pthread_mutex_t		m_time;
+	pthread_mutex_t		m_protect;
+	pthread_mutex_t		m_is_eating;
+	pthread_mutex_t		m_count;
+	t_phil				*philos;
+}						t_data;
 
+int		ft_strcmp(char *s1, char *s2);
 long	ft_atoi(const char *str);
-int	ft_isdigit(int c);
-
+int		ft_isdigit(int c);
+long	get_time(void);
+void	ft_usleep(long time_finish);
+int		check_isdigit(char *s);
+int		check_args(char **av);
+void	ft_append(char **av, t_data *args, int n_arg);
+void	initialize_tab(t_data *data);
+void	create_forks(t_data *data);
+void	create_philo(t_data *data);
+void	*routine(void *data);
+void	g_eat(t_phil *phil);
+void	g_sleep(t_phil *phil);
+int		print_msg(t_phil *phil, char *action, char *color);
+int		check_eat(t_data *data);
+int		check_death(t_data *data);
 
 #endif
