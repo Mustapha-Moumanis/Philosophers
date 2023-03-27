@@ -6,11 +6,11 @@
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 00:58:06 by mmoumani          #+#    #+#             */
-/*   Updated: 2023/03/02 15:58:24 by mmoumani         ###   ########.fr       */
+/*   Updated: 2023/03/18 22:35:32 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "../includes/philo.h"
+#include "../includes/philo.h"
 
 static int	ft_white_space(const char *str, int i)
 {

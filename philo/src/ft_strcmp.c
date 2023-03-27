@@ -6,9 +6,11 @@
 /*   By: mmoumani <mmoumani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 17:29:00 by mmoumani          #+#    #+#             */
-/*   Updated: 2023/03/10 09:43:54 by mmoumani         ###   ########.fr       */
+/*   Updated: 2023/03/18 22:35:49 by mmoumani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../includes/philo.h"
 
 int	ft_strcmp(char *s1, char *s2)
 {

@@ -5,8 +5,7 @@ FILES = philo.c ft_atoi.c ft_isdigit.c ft_strcmp.c time.c check_args.c \
 
 FILES := $(addprefix src/, $(FILES))
 
-FLAGS = -Wall -Wextra -Werror 
-# -fsanitize=thread -g3
+FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
